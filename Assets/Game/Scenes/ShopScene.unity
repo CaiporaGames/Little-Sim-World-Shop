@@ -16886,7 +16886,7 @@ GameObject:
   - component: {fileID: 1409717616}
   - component: {fileID: 1409717618}
   - component: {fileID: 1409717617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BaseGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55794,7 +55794,7 @@ GameObject:
   - component: {fileID: 1547260161}
   - component: {fileID: 1547260160}
   - component: {fileID: 1547260159}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Florest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55833,7 +55833,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2097153
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -90257,6 +90257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  animationInfo: {fileID: 11400000, guid: 1030dd7014a2a264ea69d3c1eb50be4c, type: 2}
 --- !u!114 &95000013596455932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90269,6 +90270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a29df34f82ee9f49a8388b67b85f0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationInfo: {fileID: 11400000, guid: 1030dd7014a2a264ea69d3c1eb50be4c, type: 2}
 --- !u!212 &212000010120016214
 SpriteRenderer:
   m_ObjectHideFlags: 0
