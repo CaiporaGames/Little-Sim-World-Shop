@@ -7,9 +7,18 @@ public class DetectClick : MonoBehaviour
     public delegate void ClickPositionHandler(Vector3 position);
     public static event ClickPositionHandler OnClickPositionChanged;
 
+    [SerializeField] private AudioClip mouseClick;
     [SerializeField] private Camera mainCamera;
 
     private Vector3 currentPosition;
+
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = mouseClick;
+    }
 
     void OnMouseDown()
     {
@@ -20,6 +29,7 @@ public class DetectClick : MonoBehaviour
             currentPosition.y -= 2;
             OnClickPositionChanged(currentPosition);
             currentPosition = Vector3.zero;
+            audioSource.Play();
         }
     }
 }

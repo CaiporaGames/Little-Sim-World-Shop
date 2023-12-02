@@ -9,12 +9,16 @@ public class ClothesController : MonoBehaviour
 
     private SOClothes currentClothe;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
+
 
     private void Start()
     {
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         currentClothe = clothesList[SetRandomCloth()];
         spriteRenderer.sprite = currentClothe.clothe;
+        audioSource= GetComponent<AudioSource>();
+        audioSource.clip = currentClothe.clouthClip;
     }
 
     int SetRandomCloth()
@@ -26,5 +30,6 @@ public class ClothesController : MonoBehaviour
     private void OnMouseDown()
     {
         playerBodyPart.GetComponent<SpriteRenderer>().sprite = currentClothe.clothe;
+        audioSource.Play();
     }
 }

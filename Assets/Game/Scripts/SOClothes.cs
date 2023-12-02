@@ -7,4 +7,5 @@ public class SOClothes : ScriptableObject
 {
     public string clotheName;
     public Sprite clothe;
+    public AudioClip clouthClip;
 }

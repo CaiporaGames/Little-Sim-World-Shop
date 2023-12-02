@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clotheName: Purple Coat
   clothe: {fileID: 21300000, guid: fff248787aa9dc44d819b77a6686c0af, type: 3}
+  clouthClip: {fileID: 8300000, guid: bdaed11069fe12842b5b324bb5e493d8, type: 3}
