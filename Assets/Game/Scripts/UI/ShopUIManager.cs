@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopUIManager : MonoBehaviour
 {
@@ -46,8 +47,9 @@ public class ShopUIManager : MonoBehaviour
         for (int i = 0; i < playerInfo.ownedClothes.Count; i++)
         {
             item.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerInfo.ownedClothes[i].clotheName;
-            item.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = playerInfo.ownedClothes[i].clothe;
+            item.transform.GetChild(1).GetComponent<Image>().sprite = playerInfo.ownedClothes[i].clothe;
             item.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = playerInfo.ownedClothes[i].clothPrice.ToString();
+            item.GetComponent<ItemController>().clothe = playerInfo.ownedClothes[i];
             Instantiate(item, sellingPanelChild.transform);
         }
     }
@@ -56,9 +58,10 @@ public class ShopUIManager : MonoBehaviour
     {
         for (int i = 0; i < clothesList.Count; i++)
         {
-            item.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = clothesList[i].clotheName;
-            item.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = clothesList[i].clothe;
-            item.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = clothesList[i].clothPrice.ToString();
+            item.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = clothesList[i].clotheName;
+            item.transform.GetChild(2).GetComponent<Image>().sprite = clothesList[i].clothe;
+            item.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = clothesList[i].clothPrice.ToString();
+            item.GetComponent<ItemController>().clothe = clothesList[i];
             Instantiate(item, sellingPanelChild.transform);
         }
     }

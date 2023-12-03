@@ -11,7 +11,7 @@ public class PlayerMoneyUIController : MonoBehaviour
 
     private void OnEnable()
     {
-        SellingSystemController.buyItem += UpdateUI;
+        ItemController.buyItem += UpdateUI;
     }
 
     private void Start()
@@ -26,6 +26,6 @@ public class PlayerMoneyUIController : MonoBehaviour
 
     private void OnDisable()
     {
-        SellingSystemController.buyItem -= UpdateUI;
+        ItemController.buyItem -= UpdateUI;
     }
 }

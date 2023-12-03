@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
   ownedClothes: []
-  playerMoney: -5300
+  playerMoney: 10000
