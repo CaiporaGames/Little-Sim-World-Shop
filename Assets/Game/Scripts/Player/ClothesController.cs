@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClothesController : MonoBehaviour
 {
+    [SerializeField] private GameObject sellersPanel;
     [SerializeField] private GameObject playerBodyPart;
     [SerializeField] List<SOClothes> clothesList;
 
@@ -21,8 +22,14 @@ public class ClothesController : MonoBehaviour
         audioSource.clip = currentClothe.clouthClip;
     }
 
+    public SOClothes GetCurrentClothe
+    {
+        get { return currentClothe; }
+    }
+
     private void OnMouseDown()
     {
+        sellersPanel.SetActive(true);
         playerBodyPart.GetComponent<SpriteRenderer>().sprite = currentClothe.clothe;
         audioSource.Play();
     }
@@ -31,10 +38,5 @@ public class ClothesController : MonoBehaviour
     {
         int index = Random.Range(0, clothesList.Count);
         return index;
-    }
-
-    public SOClothes GetCurrentClothe
-    {
-        get { return currentClothe; }
     }
 }
