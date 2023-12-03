@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ClothesController;
 
 public class ClothesController : MonoBehaviour
 {
-    [SerializeField] private GameObject sellersPanel;
+    public delegate void DressingClothes(SOClothes currentClothe);
+    public static DressingClothes dressingClothes;
+
     [SerializeField] private GameObject playerBodyPart;
     [SerializeField] List<SOClothes> clothesList;
 
@@ -22,6 +25,11 @@ public class ClothesController : MonoBehaviour
         audioSource.clip = currentClothe.clouthClip;
     }
 
+    public List<SOClothes> AllClothes
+    {
+        get { return clothesList; }
+    }
+
     public SOClothes GetCurrentClothe
     {
         get { return currentClothe; }
@@ -29,9 +37,9 @@ public class ClothesController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        sellersPanel.SetActive(true);
-        playerBodyPart.GetComponent<SpriteRenderer>().sprite = currentClothe.clothe;
-        audioSource.Play();
+        dressingClothes?.Invoke(currentClothe);
+        //playerBodyPart.GetComponent<SpriteRenderer>().sprite = currentClothe.clothe;
+        //audioSource.Play();
     }
 
     int SetRandomCloth()

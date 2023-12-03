@@ -13,16 +13,26 @@ public class SellingSystemController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private void OnEnable()
+    {
+        ClothesController.dressingClothes += BuySelectedItem;
+    }
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = buySound;
     }
-    public void BuySelectedItem(SOClothes selectedClothe)
+     void BuySelectedItem(SOClothes selectedClothe)
     {
         playerInfo.ownedClothes.Add(selectedClothe);
         playerInfo.playerMoney -= selectedClothe.clothPrice;
         audioSource.Play();
         buyItem.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        ClothesController.dressingClothes += BuySelectedItem;
     }
 }

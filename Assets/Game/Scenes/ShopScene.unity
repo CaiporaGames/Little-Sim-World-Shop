@@ -5376,8 +5376,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.914375}
-  m_SizeDelta: {x: 0, y: 181.4014}
+  m_AnchoredPosition: {x: 0, y: -510.61935}
+  m_SizeDelta: {x: 0, y: 1024.8113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &242520914
 MonoBehaviour:
@@ -5486,6 +5486,7 @@ GameObject:
   - component: {fileID: 310385809}
   - component: {fileID: 310385810}
   - component: {fileID: 310385811}
+  - component: {fileID: 310385812}
   m_Layer: 0
   m_Name: --Managers--
   m_TagString: Untagged
@@ -5632,6 +5633,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInfo: {fileID: 11400000, guid: bc2fdf57d2083014dbf4484abf245549, type: 2}
   buySound: {fileID: 8300000, guid: 15b28e190508ae14a8e7cd89080a6995, type: 3}
+--- !u!114 &310385812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310385806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc6fb4db86f71d49bc0b4aa21cc4305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sellingPanel: {fileID: 1476717552}
+  sellersPanel: {fileID: 696282984}
+  playerInfo: {fileID: 11400000, guid: bc2fdf57d2083014dbf4484abf245549, type: 2}
+  clothesList:
+  - {fileID: 11400000, guid: dd4b7e2962c4aa345abb232872775b6f, type: 2}
+  - {fileID: 11400000, guid: 86f700cd16cda7947b2feedfda0ba4d9, type: 2}
+  - {fileID: 11400000, guid: 9875cd37872f3a7469d7d126b5060a9c, type: 2}
+  - {fileID: 11400000, guid: 32e2231e6b8cf5947be4e387d8530ea5, type: 2}
+  - {fileID: 11400000, guid: 597d91fe322358d4da640d4c7a28d64b, type: 2}
+  - {fileID: 11400000, guid: d8390867c9d1efb419915276c41cd1a9, type: 2}
+  item: {fileID: 4234992367754140280, guid: fc2e55ee245621649b80e6b9a41fb60e, type: 3}
 --- !u!1 &317175714
 GameObject:
   m_ObjectHideFlags: 0
@@ -36328,8 +36352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 242520913}
-  m_Horizontal: 1
-  m_Vertical: 0
+  m_Horizontal: 0
+  m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -42083,22 +42107,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1476717552}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 696282984}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 310385812}
+        m_TargetAssemblyTypeName: ShopUIManager, Project
+        m_MethodName: OpenPlayerSellingPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -99236,22 +99248,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1476717552}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 696282984}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 310385812}
+        m_TargetAssemblyTypeName: ShopUIManager, Project
+        m_MethodName: OpenSellerSellingPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -115545,10 +115545,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1476717552}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 310385812}
+        m_TargetAssemblyTypeName: ShopUIManager, Project
+        m_MethodName: CloseSellingPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -134522,7 +134522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000012793436270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.4, y: -19, z: 0}
+  m_LocalPosition: {x: 43.68, y: -21.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
