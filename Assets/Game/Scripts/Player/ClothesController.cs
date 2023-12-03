@@ -17,8 +17,14 @@ public class ClothesController : MonoBehaviour
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         currentClothe = clothesList[SetRandomCloth()];
         spriteRenderer.sprite = currentClothe.clothe;
-        audioSource= GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         audioSource.clip = currentClothe.clouthClip;
+    }
+
+    private void OnMouseDown()
+    {
+        playerBodyPart.GetComponent<SpriteRenderer>().sprite = currentClothe.clothe;
+        audioSource.Play();
     }
 
     int SetRandomCloth()
@@ -27,9 +33,8 @@ public class ClothesController : MonoBehaviour
         return index;
     }
 
-    private void OnMouseDown()
+    public SOClothes GetCurrentClothe
     {
-        playerBodyPart.GetComponent<SpriteRenderer>().sprite = currentClothe.clothe;
-        audioSource.Play();
+        get { return currentClothe; }
     }
 }
