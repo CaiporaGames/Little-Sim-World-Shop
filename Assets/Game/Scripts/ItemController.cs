@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using static SellingSystemController;
 
 public class ItemController : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class ItemController : MonoBehaviour
     [SerializeField] private AudioClip buySound;
 
     private AudioSource audioSource;
+    private GameObject player;
 
     private void Start()
     {
@@ -21,8 +22,18 @@ public class ItemController : MonoBehaviour
     }
     public void BuySelectedItem()
     {
+        player = GameObject.FindWithTag("Player");
         playerInfo.ownedClothes.Add(clothe);
-        playerInfo.playerMoney -= clothe.clothPrice;
+        if(clothe.canSell)
+        {
+            clothe.canSell = false;
+            playerInfo.playerMoney += clothe.clothPrice;
+        }
+        else
+        {
+            player.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<SpriteRenderer>().sprite = clothe.clothe;
+            playerInfo.playerMoney -= clothe.clothPrice;
+        }
         audioSource.Play();
         buyItem.Invoke();
     }
