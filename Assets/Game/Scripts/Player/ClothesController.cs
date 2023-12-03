@@ -9,6 +9,7 @@ public class ClothesController : MonoBehaviour
 
     [SerializeField] private GameObject playerBodyPart;
     [SerializeField] List<SOClothes> clothesList;
+    [SerializeField] private bool isUsedOnClothes = false;
 
     private SOClothes currentClothe;
     private SpriteRenderer spriteRenderer;
@@ -17,8 +18,11 @@ public class ClothesController : MonoBehaviour
     private void Start()
     {
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        currentClothe = clothesList[SetRandomCloth()];
-        spriteRenderer.sprite = currentClothe.clothe;
+        if (isUsedOnClothes)
+        {
+            currentClothe = clothesList[SetRandomCloth()];
+            spriteRenderer.sprite = currentClothe.clothe;
+        }
     }
 
     public List<SOClothes> AllClothes
@@ -33,7 +37,8 @@ public class ClothesController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        dressingClothes?.Invoke(currentClothe);
+        if (!isUsedOnClothes)
+            dressingClothes?.Invoke(currentClothe);
     }
 
     int SetRandomCloth()

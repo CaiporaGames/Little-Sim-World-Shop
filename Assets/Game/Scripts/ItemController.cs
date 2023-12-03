@@ -23,16 +23,17 @@ public class ItemController : MonoBehaviour
     public void BuySelectedItem()
     {
         player = GameObject.FindWithTag("Player");
-        playerInfo.ownedClothes.Add(clothe);
         if(clothe.canSell)
         {
-            clothe.canSell = false;
+            playerInfo.ownedClothes.Remove(clothe);
             playerInfo.playerMoney += clothe.clothPrice;
+            Destroy(gameObject);
         }
         else
         {
             player.transform.GetChild(1).GetChild(0).GetChild(3).GetComponent<SpriteRenderer>().sprite = clothe.clothe;
             playerInfo.playerMoney -= clothe.clothPrice;
+            playerInfo.ownedClothes.Add(clothe);
         }
         audioSource.Play();
         buyItem.Invoke();

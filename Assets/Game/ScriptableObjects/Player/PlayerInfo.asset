@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc93c7d005718a43b8f2764b0482ef4, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  ownedClothes: []
-  playerMoney: 10000
+  ownedClothes:
+  - {fileID: 11400000, guid: 9875cd37872f3a7469d7d126b5060a9c, type: 2}
+  playerMoney: 4350
